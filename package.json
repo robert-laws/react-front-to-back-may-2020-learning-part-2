@@ -1,0 +1,33 @@
+{
+  "name": "react-front-to-back-may-2020-learning-part-2",
+  "version": "1.0.0",
+  "description": "Code along with project 2 of React Front to Back",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robert-laws/react-front-to-back-may-2020-learning-part-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robert-laws/react-front-to-back-may-2020-learning-part-2/issues"
+  },
+  "homepage": "https://github.com/robert-laws/react-front-to-back-may-2020-learning-part-2#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "express-validator": "^6.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.16"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4"
+  }
+}
