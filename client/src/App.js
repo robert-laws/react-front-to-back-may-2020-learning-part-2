@@ -8,22 +8,26 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
 
+import ContactState from './context/contact/ContactState';
+
 const App = () => {
   return (
     <>
-      <Router>
-        <NavigationBar />
-        <Container>
-          <Row>
-            <Col>
-              <Switch>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/about' component={About} />
-              </Switch>
-            </Col>
-          </Row>
-        </Container>
-      </Router>
+      <ContactState>
+        <Router>
+          <NavigationBar />
+          <Container>
+            <Row>
+              <Col>
+                <Switch>
+                  <Route exact path='/' component={Home} />
+                  <Route exact path='/about' component={About} />
+                </Switch>
+              </Col>
+            </Row>
+          </Container>
+        </Router>
+      </ContactState>
     </>
   );
 }

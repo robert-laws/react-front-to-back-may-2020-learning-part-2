@@ -13,7 +13,10 @@ const NavigationBar = ({ title, icon }) => {
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
+            <Nav className="ml-auto">
+              <LinkContainer to='/'>
+                <Nav.Link>Home</Nav.Link>
+              </LinkContainer>
               <LinkContainer to='/about'>
                 <Nav.Link>About</Nav.Link>
               </LinkContainer>
@@ -28,7 +31,7 @@ const NavigationBar = ({ title, icon }) => {
 
 NavigationBar.propTypes = {
   title: PropTypes.string.isRequired,
-  icon: PropTypes.elementType
+  icon: PropTypes.object
 }
 
 NavigationBar.defaultProps = {
