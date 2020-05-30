@@ -1,55 +1,45 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types'
+import ContactContext from '../../context/contact/contactContext';
+
 import { Card, Badge, Button } from 'react-bootstrap';
-import basicContact2 from '../../images/basic-contact-v2.jpg';
 import { EnvelopeOpenFill, Phone } from 'react-bootstrap-icons';
+import basicContact2 from '../../images/basic-contact-v2.jpg';
 
-const makeCapital = word => {
-  let words = word.split(' ');
-  let newWord = '';
-
-  if(words.length > 1) {
-    for (var value of words) {
-      newWord += (capitalizeWord(value) + ' ')
-    }
-  } else {
-    newWord = capitalizeWord(word)
-  }
-
-  return newWord;
-}
-
-const capitalizeWord = word => {
-  let myWord = word.charAt(0).toUpperCase() + word.slice(1)
-  return myWord;
-}
+import { makeCapital } from '../../helpers/stringHelpers';
 
 const ContactItem = ({ contact }) => {
+  const contactContext = useContext(ContactContext);
+  const { deleteContact, setCurrentContact, clearCurrentContact } = contactContext;
+
   const { id, name, email, phone, type } = contact
 
+  const handleDelete = () => {
+    deleteContact(id);
+    clearCurrentContact();
+  }
+
   return (
-    <>
-      <Card style={{ width: '18rem' }} className="my-3">
-        <Card.Img variant="top" src={basicContact2}/>
-        <Card.Body>
-          <Card.Title>
-            {makeCapital(name)}{' '}<Badge variant={type === 'professional' ? 'success' : 'primary'}>{makeCapital(type)}</Badge>
-          </Card.Title>
-          {email && (
-            <Card.Text>
-              <EnvelopeOpenFill /> {email}
-            </Card.Text>
-          )}
-          {phone && (
-            <Card.Text>
-              <Phone /> {phone}
-            </Card.Text>
-          )}
-          <Button variant="dark">Edit</Button>{' '}
-          <Button variant="danger">Delete</Button>{' '}
-        </Card.Body>
-      </Card>
-    </>
+    <Card style={{ width: '16rem' }}>
+      <Card.Img variant="top" src={basicContact2}/>
+      <Card.Body>
+        <Card.Title>
+          {makeCapital(name)}{' '}<Badge variant={type === 'professional' ? 'success' : 'primary'}>{makeCapital(type)}</Badge>
+        </Card.Title>
+        {email && (
+          <Card.Text>
+            <EnvelopeOpenFill /> {email}
+          </Card.Text>
+        )}
+        {phone && (
+          <Card.Text>
+            <Phone /> {phone}
+          </Card.Text>
+        )}
+        <Button variant="dark" onClick={() => setCurrentContact(contact)}>Edit</Button>{' '}
+        <Button variant="danger" onClick={handleDelete}>Delete</Button>{' '}
+      </Card.Body>
+    </Card>
   )
 }
 

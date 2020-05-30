@@ -20,8 +20,6 @@ const NavigationBar = ({ title, icon }) => {
               <LinkContainer to='/about'>
                 <Nav.Link>About</Nav.Link>
               </LinkContainer>
-              <Nav.Link href="#features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
             </Nav>
           </Navbar.Collapse>
       </Navbar>
