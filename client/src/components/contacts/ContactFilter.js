@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useEffect } from 'react'
 import ContactContext from '../../context/contact/contactContext';
 
-import { Form, Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 
 const ContactFilter = () => {
   const contactContext = useContext(ContactContext);
