@@ -9,25 +9,28 @@ import Home from './components/pages/Home';
 import About from './components/pages/About';
 
 import ContactState from './context/contact/ContactState';
+import AuthState from './context/auth/AuthState';
 
 const App = () => {
   return (
     <>
-      <ContactState>
-        <Router>
-          <NavigationBar />
-          <Container>
-            <Row>
-              <Col>
-                <Switch>
-                  <Route exact path='/' component={Home} />
-                  <Route exact path='/about' component={About} />
-                </Switch>
-              </Col>
-            </Row>
-          </Container>
-        </Router>
-      </ContactState>
+      <AuthState>
+        <ContactState>
+          <Router>
+            <NavigationBar />
+            <Container>
+              <Row>
+                <Col>
+                  <Switch>
+                    <Route exact path='/' component={Home} />
+                    <Route exact path='/about' component={About} />
+                  </Switch>
+                </Col>
+              </Row>
+            </Container>
+          </Router>
+        </ContactState>
+      </AuthState>
     </>
   );
 }
