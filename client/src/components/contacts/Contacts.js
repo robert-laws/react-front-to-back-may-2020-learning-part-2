@@ -4,7 +4,6 @@ import ContactItem from './ContactItem';
 import ContactContext from '../../context/contact/contactContext';
 import { Container, Row, CardColumns } from 'react-bootstrap';
 
-
 const Contacts = () => {
   const contactContext = useContext(ContactContext);
 
