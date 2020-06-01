@@ -4,15 +4,19 @@ import { Navbar, Nav } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { CardList } from 'react-bootstrap-icons';
 import AuthContext from '../../context/auth/authContext';
+import ContactContext from '../../context/contact/contactContext';
 import { ArrowRightSquareFill } from 'react-bootstrap-icons';
 
 const NavigationBar = ({ title, icon }) => {
   const authContext = useContext(AuthContext);
+  const contactContext = useContext(ContactContext);
 
   const { isAuthenticated, logout, user } = authContext;
+  const { clearContacts } = contactContext;
 
   const handleLogout = () => {
     logout();
+    clearContacts();
   }
 
   const authLinks = (
